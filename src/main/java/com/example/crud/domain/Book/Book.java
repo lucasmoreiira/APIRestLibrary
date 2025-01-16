@@ -1,9 +1,8 @@
-package com.example.crud.domain;
+package com.example.crud.domain.Book;
 
 
 import jakarta.persistence.*;
 import lombok.*;
-import java.util.UUID;
 
 
 @Table(name="book")

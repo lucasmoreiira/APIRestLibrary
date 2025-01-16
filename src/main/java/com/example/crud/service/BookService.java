@@ -1,10 +1,9 @@
 package com.example.crud.service;
 
-import com.example.crud.domain.Book;
-import com.example.crud.domain.BookRepository;
-import com.example.crud.domain.RequestBookDTO;
+import com.example.crud.domain.Book.Book;
+import com.example.crud.domain.Book.BookRepository;
+import com.example.crud.domain.Book.RequestBookDTO;
 import jakarta.persistence.EntityNotFoundException;
-import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

@@ -1,9 +1,9 @@
 package com.example.crud.controller;
 
 
-import com.example.crud.domain.BookRepository;
+import com.example.crud.domain.Book.BookRepository;
 import com.example.crud.service.BookService;
-import com.example.crud.domain.RequestBookDTO;
+import com.example.crud.domain.Book.RequestBookDTO;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
