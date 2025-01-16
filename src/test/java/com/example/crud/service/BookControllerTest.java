@@ -1,7 +1,7 @@
 package com.example.crud.service;
 
-import com.example.crud.domain.Book;
-import com.example.crud.domain.RequestBookDTO;
+import com.example.crud.domain.Book.Book;
+import com.example.crud.domain.Book.RequestBookDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -14,8 +14,6 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.UUID;
 
 import static org.hamcrest.Matchers.hasSize;
