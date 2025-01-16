@@ -14,15 +14,6 @@ class CrudApplicationTests {
 
 
 
-	@Test
-	void createBookSuccess() {
 
-
-	}
-
-	@Test
-	void createBookFailure(){
-
-	}
 
 }

@@ -21,19 +21,19 @@ public class BookService {
     private BookRepository repository;
 
 
-    @GetMapping("/{id}")
+
     public ResponseEntity getBookById(@PathVariable String id) {
         var book = repository.findBookById(id);
         return ResponseEntity.ok(book);
     }
 
-    @GetMapping
+
     public ResponseEntity getAllBooks() {
         var allBooks = repository.findAllByActiveTrue();
         return ResponseEntity.ok(allBooks);
     }
 
-    @PostMapping
+
     public ResponseEntity registerBooks(@RequestBody @Valid RequestBookDTO data) {
         Book newBook = new Book(data);
         repository.save(newBook);
@@ -41,8 +41,7 @@ public class BookService {
     }
 
 
-    @PutMapping
-    @Transactional
+
     public ResponseEntity updateBook(@RequestBody @Valid RequestBookDTO data) {
         Optional<Book> optionalBook = repository.findById(data.id());
         if (optionalBook.isPresent()) {
@@ -57,8 +56,7 @@ public class BookService {
         }
     }
 
-    @DeleteMapping("/{id}")
-    @Transactional
+
     public ResponseEntity deleteBook(@PathVariable @Valid String id) {
         Optional<Book> optionalBook = repository.findById(id);
         if (optionalBook.isPresent()) {
