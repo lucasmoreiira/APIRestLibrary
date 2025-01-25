@@ -11,25 +11,31 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
 public class BookService {
 
-
     @Autowired
     private BookRepository repository;
 
 
-
     public ResponseEntity getBookById(@PathVariable String id) {
-        var book = repository.findBookById(id);
-        return ResponseEntity.ok(book);
+        List<Book> book = repository.findBookById(id);
+        if(book.isEmpty()){
+            throw new EntityNotFoundException("data not found with provided ID");
+
+        }
+        return ResponseEntity.ok(book.get(0));
     }
 
 
     public ResponseEntity getAllBooks() {
-        var allBooks = repository.findAllByActiveTrue();
+        List<Book>allBooks = repository.findAllByActiveTrue();
+        if(allBooks.isEmpty()){
+            throw new EntityNotFoundException();
+        }
         return ResponseEntity.ok(allBooks);
     }
 
@@ -39,7 +45,6 @@ public class BookService {
         repository.save(newBook);
         return ResponseEntity.ok().build();
     }
-
 
 
     public ResponseEntity updateBook(@RequestBody @Valid RequestBookDTO data) {
