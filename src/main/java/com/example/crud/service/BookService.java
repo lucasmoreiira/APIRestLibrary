@@ -15,11 +15,8 @@ import java.util.Optional;
 @Service
 public class BookService {
 
-
     @Autowired
     private BookRepository repository;
-
-
 
     public ResponseEntity getBookById(@PathVariable String id) {
         var book = repository.findBookById(id);
@@ -33,7 +30,7 @@ public class BookService {
     }
 
 
-    public ResponseEntity registerBooks(@RequestBody @Valid RequestBookDTO data) {
+    public ResponseEntity<Book> registerBooks(@RequestBody RequestBookDTO data) {
         Book newBook = new Book(data);
         repository.save(newBook);
         return ResponseEntity.ok().build();
